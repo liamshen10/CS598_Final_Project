@@ -21,9 +21,9 @@ We investigate the reproducibility of a transformer-based summarization model ta
 
 ---
 
-## 🔗 GitHub Repository
+## 🔗 Reproducing the Paper
 
-🔗 [liamshen10/CS598_Final_Project](https://github.com/liamshen10/CS598_Final_Project.git)
+📄 [Read our full Final Project Report](./FinalProjectPaper.pdf)
 
 ---
 
