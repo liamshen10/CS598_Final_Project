@@ -107,8 +107,3 @@ We tested an alternative pooling strategy using average token pooling (instead o
 - **Liam Shen** – liams4
 - **Abhitej Bokka** – abhitej2
 
----
-
-## 📄 License
-
-MIT License. For academic and educational use only.
