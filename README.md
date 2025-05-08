@@ -29,7 +29,7 @@ We investigate the reproducibility of a transformer-based summarization model ta
 
 ## ⚙️ Requirements
 
-To run the project, open `finalProject.ipynb` in Google Colab or a local Jupyter environment.
+To run the project, open `CS598FinalProjectLiamAbhitej.ipynb` in Google Colab or a local Jupyter environment.
 
 **Python Version:** 3.11  
 Install dependencies via:
