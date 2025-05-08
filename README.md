@@ -65,7 +65,7 @@ This project uses three tables from the [MIMIC-III Clinical Database](https://ph
 
 ## 🚀 Running the Model
 
-1. Load the `simulated_noteevents.csv` into the notebook.
+1. Load the `sample10000.csv` into the notebook.
 2. Follow the notebook cells to:
    - Preprocess and tokenize data
    - Train ClinicalBERT using weak supervision
