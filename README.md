@@ -2,8 +2,8 @@
 # 🧠 Query-Focused EHR Summarization
 
 This repository contains the official implementation of our reproduction of the paper:  
-**[Query-Focused Electronic Health Record Summarization for Diagnostic Support](https://arxiv.org/abs/2211.08346)**  
-by McInerney et al., EMNLP 2022.
+**[Query-Focused EHR Summarization to Aid Imaging Diagnosis](https://arxiv.org/abs/2004.04645)**  
+by McInerney et al., PMLR 2020.
 
 We replicate the core methodology using MIMIC-III data, ClinicalBERT embeddings, and distant supervision via ICD codes to build a query-focused summarization pipeline for clinical decision support.
 
