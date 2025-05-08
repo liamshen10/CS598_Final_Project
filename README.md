@@ -16,7 +16,7 @@ We investigate the reproducibility of a transformer-based model that generates E
 
 ## 📺 Video
 
-[Watch our final project video here](https://example.com/final-video-link)
+[Watch our final project video here](https://youtu.be/ruyZwse6_4Y)
 
 ---
 
