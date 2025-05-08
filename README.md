@@ -1,83 +1,114 @@
-# Query-Focused EHR Summarization
+
+# 🧠 Query-Focused EHR Summarization
 
 This repository contains the official implementation of our reproduction of the paper:  
 **[Query-Focused Electronic Health Record Summarization for Diagnostic Support](https://arxiv.org/abs/2211.08346)**  
 by McInerney et al., EMNLP 2022.
 
-We reproduce the core methodology using MIMIC-III data, ClinicalBERT embeddings, and distant supervision via ICD codes.
+We replicate the core methodology using MIMIC-III data, ClinicalBERT embeddings, and distant supervision via ICD codes to build a query-focused summarization pipeline for clinical decision support.
 
 ---
 
 ## 📋 Abstract
 
-We investigate the reproducibility of a transformer-based model that generates EHR summaries targeted at radiological diagnosis queries. By using distant supervision from future ICD codes, we train ClinicalBERT-based classifiers to label pre-discharge sentences as relevant to post-imaging diagnostic outcomes. Our implementation follows the methodology of McInerney et al. and explores ablations such as pooling strategies to understand inductive biases. We report quantitative performance metrics and discuss reproducibility barriers in computational and data availability.
+We investigate the reproducibility of a transformer-based summarization model tailored for radiological diagnosis queries. By leveraging distant supervision from post-discharge ICD codes, we train ClinicalBERT-based classifiers to identify relevant sentences from pre-discharge clinical notes. Our pipeline implements the methodology proposed by McInerney et al., with adaptations for public MIMIC-III data, and explores ablation strategies like alternative pooling techniques. We report performance metrics and identify barriers related to computational constraints, weak labeling, and dataset sparsity.
 
 ---
 
-## 📺 Video
+## 📺 Video Presentation
 
-[Watch our final project video here](https://youtu.be/ruyZwse6_4Y)
+🎥 [Watch our final project video here](https://youtu.be/ruyZwse6_4Y)
 
 ---
 
-## 🔗 GitHub Repo
+## 🔗 GitHub Repository
 
-[GitHub Repository: liamshen10/CS598_Final_Project](https://github.com/liamshen10/CS598_Final_Project.git)
+🔗 [liamshen10/CS598_Final_Project](https://github.com/liamshen10/CS598_Final_Project.git)
 
 ---
 
 ## ⚙️ Requirements
 
-To install dependencies:
-Run the first cell in the finalProject.ipynb notebook
+To run the project, open `finalProject.ipynb` in Google Colab or a local Jupyter environment.
 
-Required Python version: 3.11
+**Python Version:** 3.11  
+Install dependencies via:
 
-Main packages:
+```bash
+pip install -r requirements.txt
+```
 
-transformers==4.39.3
+**Core Python Libraries:**
+- `transformers==4.39.3`
+- `torch`
+- `scikit-learn`
+- `pandas`
+- `spacy`
+- `nltk`
 
-scikit-learn
+---
 
-torch
+## 📂 Data Access
 
-pandas
+This project uses three tables from the [MIMIC-III Clinical Database](https://physionet.org/content/mimiciii/1.4/):
 
-spacy
+- `NOTEEVENTS.csv`
+- `ADMISSIONS.csv`
+- `DIAGNOSES_ICD.csv`
 
-nltk
+### 🔐 Access Instructions:
+1. Complete CITI “Data or Specimens Only Research” training via PhysioNet.
+2. Request credentialed access through your institution.
+3. After downloading the CSVs, run `opening.py` on `NOTEEVENTS.csv` to generate the `simulated_noteevents.csv` subset for training.
 
+---
 
-## Data Access
-You need credentialed access to MIMIC-III from PhysioNet to download:
+## 🚀 Running the Model
 
-NOTEEVENTS.csv
+1. Load the `simulated_noteevents.csv` into the notebook.
+2. Follow the notebook cells to:
+   - Preprocess and tokenize data
+   - Train ClinicalBERT using weak supervision
+   - Evaluate predictions using multiclass classification metrics
 
-admissions.csv
+---
 
-diagnoses_icd.csv
+## 📊 Evaluation Metrics
 
-#To get the sampleData needed for the .ipynb file, make sure to run the opening.py file on the NOTEEVENTS.csv file. THis is the subset of data used to train the model
+The following metrics are computed using `sklearn.metrics`:
 
-## Evaluation
-To evaluate the trained model and generate classification metrics:
-Just run throught the .ipynb file
+- **Accuracy**
+- **Macro-averaged F1 Score**
+- **Multiclass AUROC** (One-vs-Rest)
+- **Precision / Recall per class**
 
-Outputs:
+---
 
-F1-score, precision, recall
+## 📈 Results
 
-Multiclass AUROC (one-vs-rest)
+| Metric       | Value |
+|--------------|-------|
+| Accuracy     | 5.0%  |
+| Macro F1     | 5.0%  |
+| AUROC (OVR)  | ~0.49 |
 
-## Results
-Our model achieves the following performance:
+These results highlight the challenges of weak supervision, label imbalance, and computational limits. See our full report for an ablation analysis and discussion of model limitations.
 
-Metric	Value
-Accuracy	5.0%
-Macro F1	5.0%
-AUROC (OVR)	~0.49
+---
 
-These results reflect the challenges of low-resource EHR learning with weak supervision and high label imbalance in small samples. See the full paper for analysis and ablation study results.
+## 🧪 Ablation Study
 
+We tested an alternative pooling strategy using average token pooling (instead of the default `[CLS]` embedding). The change had minimal impact (AUROC ~0.488), suggesting that dataset quality and label sparsity were bigger performance bottlenecks than architecture design.
 
+---
 
+## 👥 Authors
+
+- **Liam Shen** – liams4
+- **Abhitej Bokka** – abhitej2
+
+---
+
+## 📄 License
+
+MIT License. For academic and educational use only.
